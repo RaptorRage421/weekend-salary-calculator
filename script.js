@@ -29,7 +29,7 @@ function handleSubmit(event) {
     document.getElementById('titleForm').value = ""
     document.getElementById('annualSalaryForm').value = ""
     let footerAlert = document.getElementById("footer_alert")
-    let footerExtra = document.getElementById("special-add")
+    
     console.log('class list: ', footerAlert.classList)
     console.log('footer alert has a value: ', footerAlert)
     let monthlySalary = annualSalaryInput / 12
@@ -38,14 +38,14 @@ function handleSubmit(event) {
     totalMonthly.innerHTML = monthlyCost
     if (monthlyCost > 20000) {
 
-        footerAlert.classList.add("over-budget","overbudget")
-        // footerExtra.classList.add("overbudget")
-      
+        footerAlert.classList.add("over-budget", "overbudget")
+        
+
     }
     console.log('footerAlert classlist: ', footerAlert.classList)
 }
 
-let tablesalarystore = document.getElementsByTagName('td')
+
 
 function deleteRow(event) {
     console.log('delete function is working')
@@ -54,15 +54,23 @@ function deleteRow(event) {
     let deletedSalary = event.target.parentElement.previousSibling.previousSibling.innerHTML
     console.log('delete event info, tracking data: ', deletedSalary)
     let removeDollarSign = Number(deletedSalary.slice(1))
-    let monthlyToDelete = removeDollarSign/12
+    let monthlyToDelete = removeDollarSign / 12
     console.log(monthlyToDelete)
     let totalMonthly = document.getElementById('total_monthly')
-    if (totalMonthly.innerTEXT > 0){
-    totalMonthly.innerHTML = monthlyCost - monthlyToDelete
-}
+    let footerAlertRemove = document.getElementById("footer_alert")
+    monthlyCost -= monthlyToDelete
+    let newMonthly = monthlyCost
+    totalMonthly.innerHTML = newMonthly
+    if (totalMonthly.innerText < 20000) {
+        footerAlertRemove.classList.remove("overbudget", "over-budget")
+
+    }
+    if (totalMonthly.innerText < 0) {
+        totalMonthly.innerHTML = ""
+
+    }
     deleteTableRow.remove()
-
+    
 }
 
-console.log(totalMonthly)
 
