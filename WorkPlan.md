@@ -21,3 +21,4 @@ stretch. when removing an employee, need to identify which employee was removed 
 
 play with CSS to style it nicely. use the tools that we have found in the assignments and the in class projects to make it easy.
 
+look into the data-testid identifier to better understand its uses and why we are using here. 

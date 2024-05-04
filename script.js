@@ -1,5 +1,6 @@
 console.log("hello world!")
 let monthlyCost = 0
+
 function handleSubmit(event) {
     console.log('handle submit works...')
     event.preventDefault()
@@ -29,17 +30,17 @@ function handleSubmit(event) {
     document.getElementById('titleForm').value = ""
     document.getElementById('annualSalaryForm').value = ""
     let footerAlert = document.getElementById("footer_alert")
-    
+
     console.log('class list: ', footerAlert.classList)
     console.log('footer alert has a value: ', footerAlert)
     let monthlySalary = annualSalaryInput / 12
     let totalMonthly = document.getElementById('total_monthly')
     monthlyCost += monthlySalary
-    totalMonthly.innerHTML = monthlyCost
+    totalMonthly.innerHTML = Number(monthlyCost.toFixed(2))
     if (monthlyCost > 20000) {
 
         footerAlert.classList.add("over-budget", "overbudget")
-        
+
 
     }
     console.log('footerAlert classlist: ', footerAlert.classList)
@@ -60,7 +61,7 @@ function deleteRow(event) {
     let footerAlertRemove = document.getElementById("footer_alert")
     monthlyCost -= monthlyToDelete
     let newMonthly = monthlyCost
-    totalMonthly.innerHTML = newMonthly
+    totalMonthly.innerHTML = Number(newMonthly.toFixed(2))
     if (totalMonthly.innerText < 20000) {
         footerAlertRemove.classList.remove("overbudget", "over-budget")
 
@@ -70,7 +71,7 @@ function deleteRow(event) {
 
     }
     deleteTableRow.remove()
-    
+
 }
 
 
