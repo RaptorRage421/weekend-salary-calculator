@@ -37,6 +37,7 @@ totalMonthly.innerHTML = monthlyCost
 
 function deleteRow(event){
 console.log('delete function is working')
+console.log(event)
 let deleteTableRow = event.target.parentElement.parentElement
 deleteTableRow.remove()
 
