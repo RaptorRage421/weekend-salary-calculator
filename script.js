@@ -53,8 +53,16 @@ function deleteRow(event) {
     let deleteTableRow = event.target.parentElement.parentElement
     let deletedSalary = event.target.parentElement.previousSibling.previousSibling.innerHTML
     console.log('delete event info, tracking data: ', deletedSalary)
-
+    let removeDollarSign = Number(deletedSalary.slice(1))
+    let monthlyToDelete = removeDollarSign/12
+    console.log(monthlyToDelete)
+    let totalMonthly = document.getElementById('total_monthly')
+    if (totalMonthly.innerTEXT > 0){
+    totalMonthly.innerHTML = monthlyCost - monthlyToDelete
+}
     deleteTableRow.remove()
 
 }
+
+console.log(totalMonthly)
 
