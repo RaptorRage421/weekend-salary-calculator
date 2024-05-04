@@ -54,20 +54,25 @@ function deleteRow(event) {
     console.log(event)
     let deleteTableRow = event.target.parentElement.parentElement
     let deletedSalary = event.target.parentElement.previousSibling.previousSibling.innerHTML
-    console.log('delete event info, tracking data: ', deletedSalary)
+    console.log('Salary Being Removed', deletedSalary)
     let removeDollarSign = Number(deletedSalary.slice(1))
-    let monthlyToDelete = removeDollarSign / 12
-    console.log(monthlyToDelete)
+    let monthlyToDelete = Number((removeDollarSign / 12).toFixed(2))
+    console.log('Monthly Cost being Removed', monthlyToDelete)
     let totalMonthly = document.getElementById('total_monthly')
     let footerAlertRemove = document.getElementById("footer_alert")
     let footerExtraRemove = document.getElementById('special-add')
-    monthlyCost -= monthlyToDelete
-    let newMonthly = monthlyCost
+    console.log('current Monthly: ', Number(monthlyCost.toFixed(2)))
+    monthlyCost-= monthlyToDelete
+    console.log('new monthly: ', Number(monthlyCost.toFixed(2)))
+    let newMonthly = Number(monthlyCost.toFixed(2))
     totalMonthly.innerHTML = Number(newMonthly.toFixed(2))
     if (totalMonthly.innerText < 20000) {
         footerAlertRemove.classList.remove("over-budget")
         footerExtraRemove.classList.remove("overbudget")
 
+    }
+    if (newMonthly < 0){
+        newMonthly = 0
     }
     if (totalMonthly.innerText < 1) {
         totalMonthly.innerText = ""
