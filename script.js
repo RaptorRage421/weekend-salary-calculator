@@ -30,7 +30,7 @@ function handleSubmit(event) {
     document.getElementById('titleForm').value = ""
     document.getElementById('annualSalaryForm').value = ""
     let footerAlert = document.getElementById("footer_alert")
-
+    let footerExtra = document.getElementById("special-add")
     console.log('class list: ', footerAlert.classList)
     console.log('footer alert has a value: ', footerAlert)
     let monthlySalary = annualSalaryInput / 12
@@ -39,7 +39,9 @@ function handleSubmit(event) {
     totalMonthly.innerHTML = Number(monthlyCost.toFixed(2))
     if (monthlyCost > 20000) {
 
-        footerAlert.classList.add("over-budget", "overbudget")
+        footerAlert.classList.add("over-budget")
+        footerExtra.classList.add("overbudget")
+        
 
 
     }
