@@ -1,5 +1,5 @@
 console.log("hello world!")
-
+let monthlyCost = 0
 function handleSubmit(event) {
     console.log('handle submit works...')
     event.preventDefault()
@@ -19,7 +19,7 @@ tableContents.innerHTML += `
 <td>${idNumberInput}</td>
 <td>${titleInput}</td>
 <td>$${annualSalaryInput}</td>
-<td><button onClick="deleteRow()"> Delete </button></td>
+<td><button onClick="deleteRow(event)"> Delete </button></td>
 </tr>
 `
 document.getElementById('firstNameForm').value = ""
@@ -28,8 +28,17 @@ document.getElementById('idForm').value = ""
 document.getElementById('titleForm').value = ""
 document.getElementById('annualSalaryForm').value = ""
 
-
-
+let monthlySalary = annualSalaryInput/12
+let totalMonthly = document.getElementById('total_monthly')
+monthlyCost += monthlySalary
+totalMonthly.innerHTML = monthlyCost
 }
 
+
+function deleteRow(event){
+console.log('delete function is working')
+let deleteTableRow = event.target.parentElement.parentElement
+deleteTableRow.remove()
+
+}
 

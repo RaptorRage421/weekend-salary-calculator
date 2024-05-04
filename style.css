@@ -17,10 +17,10 @@ body {
     flex-direction: column;
   }
   header {
-    background-image: url(./images/fireandice.jpg);
-    background-size: cover;
-    background-blend-mode:exclusion;
-    background-repeat: no-repeat;
+ 
+
+  
+   
    background-position: center;
    background-color: #574e4e;
     height: 8em;
