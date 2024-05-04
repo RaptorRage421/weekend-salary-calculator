@@ -20,7 +20,7 @@ function handleSubmit(event) {
 <td>${lastNameInput}</td>
 <td>${idNumberInput}</td>
 <td>${titleInput}</td>
-<td>$${annualSalaryInput}</td>
+<td id="salaryTable">$${annualSalaryInput}</td>
 <td><button onClick="deleteRow(event)"> Delete </button></td>
 </tr>
 `
@@ -43,7 +43,6 @@ function handleSubmit(event) {
         footerExtra.classList.add("overbudget")
         
 
-
     }
     console.log('footerAlert classlist: ', footerAlert.classList)
 }
@@ -61,15 +60,17 @@ function deleteRow(event) {
     console.log(monthlyToDelete)
     let totalMonthly = document.getElementById('total_monthly')
     let footerAlertRemove = document.getElementById("footer_alert")
+    let footerExtraRemove = document.getElementById('special-add')
     monthlyCost -= monthlyToDelete
     let newMonthly = monthlyCost
     totalMonthly.innerHTML = Number(newMonthly.toFixed(2))
     if (totalMonthly.innerText < 20000) {
-        footerAlertRemove.classList.remove("overbudget", "over-budget")
+        footerAlertRemove.classList.remove("over-budget")
+        footerExtraRemove.classList.remove("overbudget")
 
     }
     if (totalMonthly.innerText < 1) {
-        totalMonthly.innerHTML = ""
+        totalMonthly.innerText = ""
 
     }
     deleteTableRow.remove()

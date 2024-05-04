@@ -38,14 +38,16 @@ body {
     margin: auto;
   }
   footer {
-    height: 8em;
+    height: 5em;
     background-color: #7a7a7a;
-    text-align: center;
+    text-align: right;
   }
-  
+   #salaryTable {
+    text-align: right;
+   }
   
   /* HEADER/FOOTER */
-  header, footer {
+  header {
     height: 100%;
     display: flex;
     justify-content: center;
@@ -106,9 +108,12 @@ background-color: #fdff9e;
     color: red;
     font-weight: 900;
     font-size: 40px;
+    background-color: rgb(87, 0, 0);
+    
   }
   .overbudget {
-animation: blink 400ms 3ms infinite forwards;
+    font-variant: all-small-caps;
+animation: blink 500ms 3ms infinite forwards;
 an
   }
   @keyframes blink {
@@ -120,7 +125,8 @@ an
     
   }
 
-  .major-alert {
-    color: red;
-    font-size: 20px;
-  }
+.spacing {
+  display: inline-block;
+width: 10%;
+
+}
