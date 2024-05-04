@@ -45,12 +45,15 @@ function handleSubmit(event) {
     console.log('footerAlert classlist: ', footerAlert.classList)
 }
 
+let tablesalarystore = document.getElementsByTagName('td')
 
 function deleteRow(event) {
     console.log('delete function is working')
     console.log(event)
     let deleteTableRow = event.target.parentElement.parentElement
-    console.log('delete event info, tracking data: ', event.target.parentElement.parentElement.t)
+    let deletedSalary = event.target.parentElement.previousSibling.previousSibling.innerHTML
+    console.log('delete event info, tracking data: ', deletedSalary)
+
     deleteTableRow.remove()
 
 }
