@@ -13,48 +13,51 @@
   <main>
     <h2>Add Employee</h2>
     <form onSubmit="handleSubmit(event)" >
-      <input id="firstNameInput"
+
+      <input data-testid="firstNameInput" id="firstNameForm"
         placeholder="First Name"
         type="text"
       >
       <input
-        id="lastNameInput"
+      data-testid="lastNameInput" id="lastNameForm"
         placeholder="Last Name"
         type="text"
       >
 
     <input
-    id="idNumber"
+    data-testid="idInput" id="idForm"
     placeholder="ID Number"
     type="text"
   >
 
   <input
-  id="jobTitle"
+  data-testid="titleInput" id="titleForm"
   placeholder="Job Title"
   type="text"
     >
     <input
-    id="annualSalary"
+    data-testid="annualSalaryInput" id="annualSalaryForm"
     placeholder="Annual Salary"
     type="text"
   >
 
-      <button type="submit">Submit</button>
+      <button type="submit" data-testid="submitButton">Submit</button>
     </form>
     <h2>Employees</h2>
     <table class="table table-bordered">
       <thead>
         <tr>
-          <th></th>
           <th>First Name</th>
           <th>Last Name</th>
           <th>ID Number</th>
           <th>Job Title</th>
           <th>Annual Salary</th>
+          <th></th>
         </tr>
       </thead>
-      <tbody id="content"></tbody>
+      <tbody id="content">
+       
+      </tbody>
     </table>
   </main>
   <footer>
