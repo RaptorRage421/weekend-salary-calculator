@@ -27,11 +27,19 @@ document.getElementById('lastNameForm').value = ""
 document.getElementById('idForm').value = ""
 document.getElementById('titleForm').value = ""
 document.getElementById('annualSalaryForm').value = ""
-
+let footerAlert = document.getElementById("footer_alert")
+console.log('class list: ', footerAlert.classList)
+console.log('footer alert has a value: ', footerAlert)
 let monthlySalary = annualSalaryInput/12
 let totalMonthly = document.getElementById('total_monthly')
 monthlyCost += monthlySalary
 totalMonthly.innerHTML = monthlyCost
+if (monthlyCost > 20000){
+    
+    footerAlert.classList.add("over-budget")
+    
+}
+console.log('footerAlert classlist: ', footerAlert.classList)
 }
 
 

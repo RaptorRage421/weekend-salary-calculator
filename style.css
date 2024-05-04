@@ -102,3 +102,6 @@ background-color: #fdff9e;
     color: #000000;
   }
   
+  .over-budget {
+    color: red;
+  }
