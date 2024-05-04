@@ -1,6 +1,6 @@
 console.log("hello world!")
 let monthlyCost = 0
-
+document.que
 function handleSubmit(event) {
     console.log('handle submit works...')
     event.preventDefault()
@@ -10,8 +10,11 @@ function handleSubmit(event) {
     let titleInput = document.getElementById('titleForm').value;
     let annualSalaryInput = document.getElementById('annualSalaryForm').value;
 
-    console.log('name is: ', firstNameInput + ' ' + lastNameInput)
-    console.log('event: ', event, EventSource, EventTarget)
+    console.log(`Name is: ${firstNameInput} ${lastNameInput}
+    \tID Number: ${idNumberInput}
+    \tJob Title: ${titleInput}
+    \tAnnual Salary: $${annualSalaryInput}`)
+    // console.log('event: ', event, EventSource, EventTarget)
 
     let tableContents = document.getElementById('table_content');
     tableContents.innerHTML += `
@@ -31,11 +34,12 @@ function handleSubmit(event) {
     document.getElementById('annualSalaryForm').value = ""
     let footerAlert = document.getElementById("footer_alert")
     let footerExtra = document.getElementById("special-add")
-    console.log('class list: ', footerAlert.classList)
-    console.log('footer alert has a value: ', footerAlert)
+    // console.log('class list: ', footerAlert.classList)
+    // console.log('footer alert has a value: ', footerAlert)
     let monthlySalary = annualSalaryInput / 12
     let totalMonthly = document.getElementById('total_monthly')
     monthlyCost += monthlySalary
+    console.log('Monthly Cost: ', Number(monthlyCost.toFixed(2)))
     totalMonthly.innerHTML = Number(monthlyCost.toFixed(2))
     if (monthlyCost > 20000) {
 
@@ -44,26 +48,28 @@ function handleSubmit(event) {
         
 
     }
-    console.log('footerAlert classlist: ', footerAlert.classList)
+    // console.log('footerAlert classlist: ', footerAlert.classList)
 }
 
 
 
 function deleteRow(event) {
     console.log('delete function is working')
-    console.log(event)
+    // console.log(event)
     let deleteTableRow = event.target.parentElement.parentElement
+ 
     let deletedSalary = event.target.parentElement.previousSibling.previousSibling.innerHTML
     console.log('Salary Being Removed', deletedSalary)
     let removeDollarSign = Number(deletedSalary.slice(1))
     let monthlyToDelete = Number((removeDollarSign / 12).toFixed(2))
+    console.log('Current Monthly Cost: ', Number(monthlyCost.toFixed(2)))
     console.log('Monthly Cost being Removed', monthlyToDelete)
     let totalMonthly = document.getElementById('total_monthly')
     let footerAlertRemove = document.getElementById("footer_alert")
     let footerExtraRemove = document.getElementById('special-add')
-    console.log('current Monthly: ', Number(monthlyCost.toFixed(2)))
-    monthlyCost-= monthlyToDelete
-    console.log('new monthly: ', Number(monthlyCost.toFixed(2)))
+    
+    monthlyCost-= Number(monthlyToDelete.toFixed(2))
+    
     let newMonthly = Number(monthlyCost.toFixed(2))
     totalMonthly.innerHTML = Number(newMonthly.toFixed(2))
     if (totalMonthly.innerText < 20000) {
@@ -74,10 +80,14 @@ function deleteRow(event) {
     if (newMonthly < 0){
         newMonthly = 0
     }
+    if (monthlyCost <0){
+        monthlyCost = 0
+    }
     if (totalMonthly.innerText < 1) {
         totalMonthly.innerText = ""
 
     }
+    console.log('New Monthly Cost: ', Number(monthlyCost.toFixed(2)))
     deleteTableRow.remove()
 
 }

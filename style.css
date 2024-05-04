@@ -1,5 +1,6 @@
 /* GLOBAL TYPOGRAPHY */
 body {
+  background-image: url('');
     background-color: #dcdcdc;
     font-family: 'Roboto', sans-serif;
     color: #313131;
@@ -91,12 +92,12 @@ body {
     color: #fcfcfc;
   }
   tbody tr:nth-child(odd){ 
-    background-color: #b176ff;
+    background-color: #4F2683;
   
    color: #000000; 
   }
   tbody tr:nth-child(even){
-background-color: #fdff9e;
+background-color: #FFC62F;
     color: #000000;
   }
   
