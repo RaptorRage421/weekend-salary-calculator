@@ -11,7 +11,7 @@ function handleSubmit(event) {
 
 console.log('name is: ', firstNameInput + ' ' + lastNameInput)
 
-let tableContents = document.getElementById('content');
+let tableContents = document.getElementById('table_content');
 tableContents.innerHTML += `
 <tr>
 <td>${firstNameInput}</td>
