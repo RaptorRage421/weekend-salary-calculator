@@ -104,4 +104,23 @@ background-color: #fdff9e;
   
   .over-budget {
     color: red;
+    font-weight: 900;
+    font-size: 40px;
+  }
+  .overbudget {
+animation: blink 400ms 3ms infinite forwards;
+an
+  }
+  @keyframes blink {
+    0%{color: red;}
+    25%{color: orange}
+    50%{color: white;}
+    75%{color: orange;}
+    100%{color: red;}
+    
+  }
+
+  .major-alert {
+    color: red;
+    font-size: 20px;
   }
