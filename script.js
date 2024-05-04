@@ -65,7 +65,7 @@ function deleteRow(event) {
         footerAlertRemove.classList.remove("overbudget", "over-budget")
 
     }
-    if (totalMonthly.innerText < 0) {
+    if (totalMonthly.innerText < 1) {
         totalMonthly.innerHTML = ""
 
     }
