@@ -11,9 +11,9 @@ function handleSubmit(event) {
     let annualSalaryInput = document.getElementById('annualSalaryForm').value;
 
     console.log(`Name is: ${firstNameInput} ${lastNameInput}
-    \tID Number: ${idNumberInput}
-    \tJob Title: ${titleInput}
-    \tAnnual Salary: $${annualSalaryInput}`)
+    \t ID Number: ${idNumberInput}
+    \t Job Title: ${titleInput}
+    \t Annual Salary: $${annualSalaryInput}`)
     // console.log('event: ', event, EventSource, EventTarget)
 
     let tableContents = document.getElementById('table_content');
@@ -37,9 +37,10 @@ function handleSubmit(event) {
     // console.log('class list: ', footerAlert.classList)
     // console.log('footer alert has a value: ', footerAlert)
     let monthlySalary = annualSalaryInput / 12
+    console.log('Monthly Cost Added: ', Number(monthlySalary.toFixed(2)))
     let totalMonthly = document.getElementById('total_monthly')
     monthlyCost += monthlySalary
-    console.log('Monthly Cost: ', Number(monthlyCost.toFixed(2)))
+  
     totalMonthly.innerHTML = Number(monthlyCost.toFixed(2))
     if (monthlyCost > 20000) {
 
@@ -57,7 +58,10 @@ function deleteRow(event) {
     console.log('delete function is working')
     // console.log(event)
     let deleteTableRow = event.target.parentElement.parentElement
- 
+    let deletedFirstName = event.target.parentElement.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousElementSibling.innerText
+    let deletedLastName = event.target.parentElement.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.innerText
+    let deletedPerson = `${deletedFirstName} ${deletedLastName}`
+    console.log('Person Being Removed: ', deletedPerson)
     let deletedSalary = event.target.parentElement.previousSibling.previousSibling.innerHTML
     console.log('Salary Being Removed', deletedSalary)
     let removeDollarSign = Number(deletedSalary.slice(1))
@@ -77,10 +81,10 @@ function deleteRow(event) {
         footerExtraRemove.classList.remove("overbudget")
 
     }
-    if (newMonthly < 0){
+    if (newMonthly < 1){
         newMonthly = 0
     }
-    if (monthlyCost <0){
+    if (monthlyCost <1){
         monthlyCost = 0
     }
     if (totalMonthly.innerText < 1) {

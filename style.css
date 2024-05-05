@@ -23,7 +23,7 @@ body {
   
    
    background-position: center;
-   background-color: #574e4e;
+   background-color: #4F2683;
     height: 8em;
     text-align: center;
     
@@ -88,17 +88,17 @@ body {
     min-width: 3.5em;
   }
   thead {
-    
+    background: 	#4F2683;
     color: #fcfcfc;
   }
   tbody tr:nth-child(odd){ 
-    background-color: #4F2683;
+    background-color: #b27ef7;
   
-   color: #000000; 
+   color: black; 
   }
   tbody tr:nth-child(even){
-background-color: #FFC62F;
-    color: #000000;
+background-color: #fde7a9;
+    color: black;
   }
   
   .over-budget {
@@ -131,7 +131,14 @@ width: 10%;
 footer {
   height: 100%;
     display: inline;
-   
-  background-color: #7a7a7a;
+   color: #ffffff;
+  background-color: #4F2683;
   text-align: right;
+}
+#skol {
+
+  background-image: url('./skol.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-x: right;
 }
