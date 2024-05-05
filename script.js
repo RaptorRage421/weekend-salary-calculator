@@ -5,7 +5,10 @@ let monthlyCost = 0
 
 
 function handleSubmit(event) {
-    console.log('handle submit works...')
+    console.log(console.log(`
+        ************** 
+        *** SUBMIT ***
+        **************`))
     event.preventDefault()
     let firstNameInput = document.getElementById('firstNameForm').value;
     let lastNameInput = document.getElementById('lastNameForm').value;
@@ -58,7 +61,10 @@ function handleSubmit(event) {
 
 
 function deleteRow(event) {
-    console.log('delete function is working')
+    console.log(`
+        ************** 
+        *** DELETE ***
+        **************`)
     // console.log(event)
     let deleteTableRow = event.target.parentElement.parentElement
     let deletedFirstName = event.target.parentElement.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousElementSibling.innerText
