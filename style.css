@@ -39,9 +39,7 @@ main {
   margin: auto;
 }
 
-#salaryTable {
-  text-align: right;
-}
+
 
 /* HEADER/FOOTER */
 header {
@@ -52,9 +50,9 @@ header {
 }
 
 h1 {
-  font-size: 3em;
+  font-size: 2em;
 
-  font-weight: 900;
+  font-weight: 500;
 }
 
 
@@ -162,8 +160,19 @@ footer {
 }
 
 #skol {
-  background-image: url('./skol2.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position-x: right;
+  text-align: right;
+}
+
+#rightside {
+text-align: right;
+  
+}
+
+.number {
+  text-align: right;
+}
+
+.clicker {
+text-align: center;
+
 }

@@ -2,13 +2,11 @@ console.log("hello world!")
 let monthlyCost = 0
 
 
-
-
 function handleSubmit(event) {
     console.log(console.log(`
-        ************** 
-        *** SUBMIT ***
-        **************`))
+         ************** 
+         *** SUBMIT ***
+         **************`))
     event.preventDefault()
     let firstNameInput = document.getElementById('firstNameForm').value;
     let lastNameInput = document.getElementById('lastNameForm').value;
@@ -27,10 +25,10 @@ function handleSubmit(event) {
 <tr>
 <td>${firstNameInput}</td>
 <td>${lastNameInput}</td>
-<td>${idNumberInput}</td>
+<td class="number">${idNumberInput}</td>
 <td>${titleInput}</td>
-<td id="salaryTable">$${annualSalaryInput}</td>
-<td><button onClick="deleteRow(event)"> Delete </button></td>
+<td class="number">$${annualSalaryInput}</td>
+<td class="clicker"><button onClick="deleteRow(event)"> Delete </button></td>
 </tr>
 `
     document.getElementById('firstNameForm').value = ""
@@ -62,9 +60,9 @@ function handleSubmit(event) {
 
 function deleteRow(event) {
     console.log(`
-        ************** 
-        *** DELETE ***
-        **************`)
+         ************** 
+         *** DELETE ***
+         **************`)
     // console.log(event)
     let deleteTableRow = event.target.parentElement.parentElement
     let deletedFirstName = event.target.parentElement.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousElementSibling.innerText
