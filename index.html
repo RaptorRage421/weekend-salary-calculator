@@ -1,45 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="style.css">
   <script src="./script.js"></script>
   <title>Salary Calculator</title>
 </head>
+
 <body>
   <header>
     <h1>Salary Calculator</h1>
   </header>
   <main>
     <h2>Add Employee</h2>
-    <form onSubmit="handleSubmit(event)" >
+    <form onSubmit="handleSubmit(event)">
 
-      <input data-testid="firstNameInput" id="firstNameForm"
-        placeholder="First Name"
-        type="text"
-      >
-      <input
-      data-testid="lastNameInput" id="lastNameForm"
-        placeholder="Last Name"
-        type="text"
-      >
+      <input data-testid="firstNameInput" id="firstNameForm" placeholder="First Name" type="text">
+      <input data-testid="lastNameInput" id="lastNameForm" placeholder="Last Name" type="text">
 
-    <input
-    data-testid="idInput" id="idForm"
-    placeholder="ID Number"
-    type="text"
-  >
+      <input data-testid="idInput" id="idForm" placeholder="ID Number" type="text">
 
-  <input
-  data-testid="titleInput" id="titleForm"
-  placeholder="Job Title"
-  type="text"
-    >
-    <input
-    data-testid="annualSalaryInput" id="annualSalaryForm"
-    placeholder="Annual Salary"
-    type="text"
-  >
+      <input data-testid="titleInput" id="titleForm" placeholder="Job Title" type="text">
+      <input data-testid="annualSalaryInput" id="annualSalaryForm" placeholder="Annual Salary" type="text">
 
       <button type="submit" data-testid="submitButton">Submit</button>
     </form>
@@ -56,14 +39,15 @@
         </tr>
       </thead>
       <tbody id="table_content">
-       
+
       </tbody>
     </table>
   </main>
   <footer id="footer_alert">
     <div id="footerextra">
-    <p id="special-add"> Total Monthly: <slag id="total_monthly"></slag> <span class="spacing"></span> </p>
-  </div>
+      <p id="special-add"> Total Monthly: <slag id="total_monthly"></slag> <span class="spacing"></span> </p>
+    </div>
   </footer>
 </body>
+
 </html>

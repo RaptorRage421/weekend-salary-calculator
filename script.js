@@ -1,6 +1,9 @@
 console.log("hello world!")
 let monthlyCost = 0
-document.que
+
+
+
+
 function handleSubmit(event) {
     console.log('handle submit works...')
     event.preventDefault()
@@ -40,13 +43,13 @@ function handleSubmit(event) {
     console.log('Monthly Cost Added: ', Number(monthlySalary.toFixed(2)))
     let totalMonthly = document.getElementById('total_monthly')
     monthlyCost += monthlySalary
-  
+
     totalMonthly.innerHTML = Number(monthlyCost.toFixed(2))
     if (monthlyCost > 20000) {
 
         footerAlert.classList.add("over-budget")
         footerExtra.classList.add("overbudget")
-        
+
 
     }
     // console.log('footerAlert classlist: ', footerAlert.classList)
@@ -71,9 +74,9 @@ function deleteRow(event) {
     let totalMonthly = document.getElementById('total_monthly')
     let footerAlertRemove = document.getElementById("footer_alert")
     let footerExtraRemove = document.getElementById('special-add')
-    
-    monthlyCost-= Number(monthlyToDelete.toFixed(2))
-    
+
+    monthlyCost -= Number(monthlyToDelete.toFixed(2))
+
     let newMonthly = Number(monthlyCost.toFixed(2))
     totalMonthly.innerHTML = Number(newMonthly.toFixed(2))
     if (totalMonthly.innerText < 20000) {
@@ -81,10 +84,10 @@ function deleteRow(event) {
         footerExtraRemove.classList.remove("overbudget")
 
     }
-    if (newMonthly < 1){
+    if (newMonthly < 1) {
         newMonthly = 0
     }
-    if (monthlyCost <1){
+    if (monthlyCost < 1) {
         monthlyCost = 0
     }
     if (totalMonthly.innerText < 1) {
