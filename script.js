@@ -41,7 +41,7 @@ function handleSubmit(event) {
     // console.log('class list: ', footerAlert.classList)
     // console.log('footer alert has a value: ', footerAlert)
     let monthlySalary = annualSalaryInput / 12
-    console.log('Monthly Cost Added: ', Number(monthlySalary.toFixed(2)))
+    console.log('Monthly Cost Added:', Number(monthlySalary.toFixed(2)))
     let totalMonthly = document.getElementById('total_monthly')
     monthlyCost += monthlySalary
 
@@ -68,13 +68,13 @@ function deleteRow(event) {
     let deletedFirstName = event.target.parentElement.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousElementSibling.innerText
     let deletedLastName = event.target.parentElement.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.innerText
     let deletedPerson = `${deletedFirstName} ${deletedLastName}`
-    console.log('Person Being Removed: ', deletedPerson)
+    console.log('Person Being Removed:', deletedPerson)
     let deletedSalary = event.target.parentElement.previousSibling.previousSibling.innerHTML
-    console.log('Salary Being Removed', deletedSalary)
+    console.log('Salary Being Removed:', deletedSalary)
     let removeDollarSign = Number(deletedSalary.slice(1))
     let monthlyToDelete = Number((removeDollarSign / 12).toFixed(2))
-    console.log('Current Monthly Cost: ', Number(monthlyCost.toFixed(2)))
-    console.log('Monthly Cost being Removed', monthlyToDelete)
+    console.log('Current Monthly Cost:', Number(monthlyCost.toFixed(2)))
+    console.log('Monthly Cost Removed:', monthlyToDelete)
     let totalMonthly = document.getElementById('total_monthly')
     let footerAlertRemove = document.getElementById("footer_alert")
     let footerExtraRemove = document.getElementById('special-add')
@@ -98,7 +98,7 @@ function deleteRow(event) {
         totalMonthly.innerText = ""
 
     }
-    console.log('New Monthly Cost: ', Number(monthlyCost.toFixed(2)))
+    console.log('New Monthly Cost:', Number(monthlyCost.toFixed(2)))
     deleteTableRow.remove()
 
 }
