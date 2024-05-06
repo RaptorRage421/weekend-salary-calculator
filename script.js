@@ -27,18 +27,20 @@ function handleSubmit(event) {
     \t *** SUBMIT ***
     \t **************`))
     event.preventDefault()
+    //! input fields
     let firstNameInput = document.getElementById('firstNameForm').value;
     let lastNameInput = document.getElementById('lastNameForm').value;
     let idNumberInput = document.getElementById('idForm').value;
     let titleInput = document.getElementById('titleForm').value;
     let annualSalaryInput = document.getElementById('annualSalaryForm').value;
 
-
+    //! console log to clearly show all the input data
     console.log(`Name is: ${firstNameInput} ${lastNameInput}
     \t ID Number: ${idNumberInput}
     \t Job Title: ${titleInput}
     \t Annual Salary: $${annualSalaryInput}`)
     // console.log('event: ', event, EventSource, EventTarget)
+    //! push the values inot the table
     let tableContents = document.getElementById('table_content');
     tableContents.innerHTML += `
 <tr>
@@ -50,16 +52,15 @@ function handleSubmit(event) {
 <td class="clicker"><button onClick="deleteRow(event)">Delete</button></td>
 </tr>
 `
+    //! reset the form
     document.getElementById('reset').reset()
-
-    // console.log('class list: ', footerAlert.classList)
-    // console.log('footer alert has a value: ', footerAlert)
+    //! monthly cost math
     let monthlySalary = annualSalaryInput / 12
     console.log('Monthly Cost Added:', Number(monthlySalary.toFixed(2)))
     monthlyCost += monthlySalary
-
+    //! run renderTotalMonthly
     renderTotalMonthly()
-    // console.log('footerAlert classlist: ', footerAlert.classList)
+
 }
 
 
@@ -91,7 +92,7 @@ function deleteRow(event) {
     monthlyCost -= Number(monthlyToDelete.toFixed(2))
     //! rendering New Cost
     renderTotalMonthly()
-   //! actual delete action for the Row
+    //! actual delete action for the Row
     deleteTableRow.remove()
 }
 
