@@ -151,7 +151,7 @@ tbody tr:nth-child(even) {
 }
 
 footer {
-
+  margin-top: 30px;
   height: 100%;
   display: inline;
   color: #ffffff;
@@ -174,5 +174,11 @@ text-align: right;
 
 .clicker {
 text-align: center;
+
+}
+#domMessage {
+
+  color: red;
+  text-align: right;
 
 }

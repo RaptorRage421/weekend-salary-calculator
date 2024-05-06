@@ -14,6 +14,8 @@ function handleSubmit(event) {
     let titleInput = document.getElementById('titleForm').value;
     let annualSalaryInput = document.getElementById('annualSalaryForm').value;
 
+
+
     console.log(`Name is: ${firstNameInput} ${lastNameInput}
     \t ID Number: ${idNumberInput}
     \t Job Title: ${titleInput}
