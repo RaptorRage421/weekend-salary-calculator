@@ -162,6 +162,10 @@ footer {
 #skol {
   text-align: right;
 }
+.skol {
+  background-image: url('./skol2.png');
+  background-size: contain;
+}
 
 #rightside {
 text-align: right;
