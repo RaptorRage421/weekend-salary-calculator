@@ -1,12 +1,31 @@
 console.log("hello world!")
 let monthlyCost = 0
-
+renderTotalMonthly()
+//! render monthly cost function with conditionals to update the CSS and DOM
+function renderTotalMonthly() {
+    let totalMonthly = document.getElementById('total_monthly')
+    totalMonthly.innerHTML = Number(monthlyCost.toFixed(2))
+    let footerAlert = document.querySelector('footer')
+    if (monthlyCost > 20000) {
+        footerAlert.classList.add("over-budget", "overbudget")
+    }
+    else if (monthlyCost < 20000) {
+        footerAlert.classList.remove("over-budget", "overbudget")
+    }
+    if (monthlyCost < 1) {
+        monthlyCost = 0
+    }
+    if (totalMonthly.innerText < 1) {
+        totalMonthly.innerText = 0
+    }
+    console.log("Current Total Monthly: ", Number(monthlyCost.toFixed(2)))
+}
 
 function handleSubmit(event) {
     console.log(console.log(`
-         ************** 
-         *** SUBMIT ***
-         **************`))
+    \t ************** 
+    \t *** SUBMIT ***
+    \t **************`))
     event.preventDefault()
     let firstNameInput = document.getElementById('firstNameForm').value;
     let lastNameInput = document.getElementById('lastNameForm').value;
@@ -15,46 +34,31 @@ function handleSubmit(event) {
     let annualSalaryInput = document.getElementById('annualSalaryForm').value;
 
 
-
     console.log(`Name is: ${firstNameInput} ${lastNameInput}
     \t ID Number: ${idNumberInput}
     \t Job Title: ${titleInput}
     \t Annual Salary: $${annualSalaryInput}`)
     // console.log('event: ', event, EventSource, EventTarget)
-
     let tableContents = document.getElementById('table_content');
     tableContents.innerHTML += `
 <tr>
 <td>${firstNameInput}</td>
 <td>${lastNameInput}</td>
-<td class="number">${idNumberInput}</td>
+<td>${idNumberInput}</td>
 <td>${titleInput}</td>
 <td class="number">$${annualSalaryInput}</td>
-<td class="clicker"><button onClick="deleteRow(event)"> Delete </button></td>
+<td class="clicker"><button onClick="deleteRow(event)">Delete</button></td>
 </tr>
 `
-    document.getElementById('firstNameForm').value = ""
-    document.getElementById('lastNameForm').value = ""
-    document.getElementById('idForm').value = ""
-    document.getElementById('titleForm').value = ""
-    document.getElementById('annualSalaryForm').value = ""
-    let footerAlert = document.getElementById("footer_alert")
-    let footerExtra = document.getElementById("special-add")
+    document.getElementById('reset').reset()
+
     // console.log('class list: ', footerAlert.classList)
     // console.log('footer alert has a value: ', footerAlert)
     let monthlySalary = annualSalaryInput / 12
     console.log('Monthly Cost Added:', Number(monthlySalary.toFixed(2)))
-    let totalMonthly = document.getElementById('total_monthly')
     monthlyCost += monthlySalary
 
-    totalMonthly.innerHTML = Number(monthlyCost.toFixed(2))
-    if (monthlyCost > 20000) {
-
-        footerAlert.classList.add("over-budget")
-        footerExtra.classList.add("overbudget")
-
-
-    }
+    renderTotalMonthly()
     // console.log('footerAlert classlist: ', footerAlert.classList)
 }
 
@@ -62,47 +66,33 @@ function handleSubmit(event) {
 
 function deleteRow(event) {
     console.log(`
-         ************** 
-         *** DELETE ***
-         **************`)
+    \t ************** 
+    \t *** DELETE ***
+    \t **************`)
     // console.log(event)
+
+    //! defining the element that needs to be deleted
     let deleteTableRow = event.target.parentElement.parentElement
+    //!  These are for console log output.
     let deletedFirstName = event.target.parentElement.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousElementSibling.innerText
     let deletedLastName = event.target.parentElement.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.innerText
     let deletedPerson = `${deletedFirstName} ${deletedLastName}`
     console.log('Person Being Removed:', deletedPerson)
+    //! this is to capture removed Salary info from the event
     let deletedSalary = event.target.parentElement.previousSibling.previousSibling.innerHTML
-    console.log('Salary Being Removed:', deletedSalary)
+    //! this is slicing off the first character which is always a "$"
     let removeDollarSign = Number(deletedSalary.slice(1))
+    console.log('Salary Being Removed:', removeDollarSign)
     let monthlyToDelete = Number((removeDollarSign / 12).toFixed(2))
+
     console.log('Current Monthly Cost:', Number(monthlyCost.toFixed(2)))
     console.log('Monthly Cost Removed:', monthlyToDelete)
-    let totalMonthly = document.getElementById('total_monthly')
-    let footerAlertRemove = document.getElementById("footer_alert")
-    let footerExtraRemove = document.getElementById('special-add')
-
+    //! The math to remove the value from the monthlyCost
     monthlyCost -= Number(monthlyToDelete.toFixed(2))
-
-    let newMonthly = Number(monthlyCost.toFixed(2))
-    totalMonthly.innerHTML = Number(newMonthly.toFixed(2))
-    if (totalMonthly.innerText < 20000) {
-        footerAlertRemove.classList.remove("over-budget")
-        footerExtraRemove.classList.remove("overbudget")
-
-    }
-    if (newMonthly < 1) {
-        newMonthly = 0
-    }
-    if (monthlyCost < 1) {
-        monthlyCost = 0
-    }
-    if (totalMonthly.innerText < 1) {
-        totalMonthly.innerText = ""
-
-    }
-    console.log('New Monthly Cost:', Number(monthlyCost.toFixed(2)))
+    //! rendering New Cost
+    renderTotalMonthly()
+   //! actual delete action for the Row
     deleteTableRow.remove()
-
 }
 
 
